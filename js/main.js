@@ -1,8 +1,10 @@
 $(function() {
     // Script that will be inserted into web page
     var disablerFunction = function () {
-        window.alert = function alert(msg) { console.log('Hidden Alert ' + msg); };
-        window.onbeforeunload = null;
+        setInterval(function(){
+            window.alert = function alert(msg) { console.info("alert: " + msg); };
+            window.onbeforeunload = null;
+        }, 50);
     };
 
     // Making a string of the function
