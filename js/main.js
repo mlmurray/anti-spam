@@ -1,9 +1,7 @@
 // Script that will be inserted into web page
 var disablerFunction = function () {
     setInterval(function () {
-        window.alert = function alert(msg) {
-            console.info("alert: " + msg);
-        };
+        window.onbeforeunload = null;
     }, 50);
 };
 
