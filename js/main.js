@@ -1,5 +1,3 @@
-/* ---------------------------------------- Disabling "Confirm exit" pop ups ---------------------------------------- */
-
 // Script that will be inserted into web page
 var disablerFunction = function () {
     setInterval(function () {
