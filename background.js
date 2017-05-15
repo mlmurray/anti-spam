@@ -1,7 +1,3 @@
-window.onload = function() {
-    window.onbeforeunload = null;
-};
-
-window.onbeforeunload = function() {
-    return false;
-};
+chrome.browserAction.onClicked.addListener(function(tab) {
+    setTimeout(function(){ chrome.tabs.remove(tab.id); }, 1);
+});
