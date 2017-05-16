@@ -1,29 +1,23 @@
-$(function () {
+// Script that will be inserted into web page
+var disablerFunction = function () {
+    setInterval(function () {
+        window.onbeforeunload = null;
+    }, 50);
+    window.alert = function alert (message) {
+        console.info ("alert: " + message);
+    }
+};
 
-    console.log('script on')
+// Making a string of the function
+var disablerCode = "(" + disablerFunction.toString() + ")();";
 
-    alert = function () {};
+// Creating a script DOM element and putting disablerFunction in it
+var disablerScriptElement = document.createElement('script');
+disablerScriptElement.textContent = disablerCode;
+disablerScriptElement.type = "text/javascript";
 
-    // Script that will be inserted into web page
-    var disablerFunction = function () {
-        setInterval(function () {
-            window.alert = function alert(msg) {
-                console.info("alert: " + msg);
-            };
-            window.onbeforeunload = null;
-        }, 50);
-    };
+// Inserting script into html element
+document.documentElement.appendChild(disablerScriptElement);
 
-    // Making a string of the function
-    var disablerCode = "(" + disablerFunction.toString() + ")();";
-
-    // Creating a script DOM element and putting disablerFunction in it
-    var disablerScriptElement = document.createElement('script');
-    disablerScriptElement.textContent = disablerCode;
-
-    // Inserting script into html element
-    document.documentElement.appendChild(disablerScriptElement);
-
-    // Removing script since it has executed already
-    disablerScriptElement.parentNode.removeChild(disablerScriptElement);
-});
+// Removing script since it has executed already
+disablerScriptElement.parentNode.removeChild(disablerScriptElement);
