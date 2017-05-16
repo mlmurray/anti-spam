@@ -1,6 +1,7 @@
 // Function that will be inserted into web page
 var disablerFunction = function () {
-    // console.log styling
+
+    // console log styling
     var icon_style = [
         'background-image: url("https://github.com/simondriesen/exit-tab/blob/master/img/icon-16.png?raw=true")',
         'background-size: 14px',
@@ -51,11 +52,6 @@ var disablerFunction = function () {
     // overwriting full screen function
     document.documentElement.webkitRequestFullscreen = function () {
         console.info('%c' + '%cFULL SCREEN BLOCKED: ' + '%c' + trigger_url + ' tried to go full screen',
-            icon_style, type_style, text_style);
-        return null
-    };
-    document.documentElement.requestFullscreen = function () {
-        console.info('%c' + '%cFULL SCREEN BLOCKED: ' + '%c' + trigger_url + ' tried to go full screen but was blocked.',
             icon_style, type_style, text_style);
         return null
     };

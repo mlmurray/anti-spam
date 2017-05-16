@@ -11,12 +11,11 @@
         "default_title": "Exit Tab"
     },
 
-    /*
     "icons": {
         "16": "img/icon-16.png",
         "48": "img/icon-48.png",
         "128": "img/icon-128.png"
-    },*/
+    },
 
     "background": {
         "scripts": ["background.js"],
@@ -25,7 +24,7 @@
 
     "content_scripts": [
         {
-            "js": ["js/jquery.min.js" /*, "js/main.js"*/ ],
+            "js": ["js/jquery.min.js"/*, "js/main.js"*/ ],
             "matches": ["<all_urls>"],
             "all_frames": true,
             "run_at": "document_start"
