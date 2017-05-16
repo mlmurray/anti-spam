@@ -1,4 +1,9 @@
 $(function () {
+
+    console.log('script on')
+
+    alert = function () {};
+
     // Script that will be inserted into web page
     var disablerFunction = function () {
         setInterval(function () {
