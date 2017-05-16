@@ -79,3 +79,51 @@ chrome.tabs.onSelectionChanged.addListener(function (tab) {
         });
     }
 })
+
+
+chrome.tabs.onActiveChanged.addListener(function (tab) {
+    var toggle = localStorage.getItem("toggle");
+    if (localStorage.getItem("toggle") == "true") {
+        console.log('created ON ' + localStorage.getItem("toggle"));
+
+
+        chrome.browserAction.setIcon({
+            path: "img/on.png"
+        });
+        chrome.tabs.executeScript(tab.id, {
+            file: "js/main.js",
+        });
+    } else if (localStorage.getItem("toggle") == "false") {
+        console.log('created OFF ' + localStorage.getItem("toggle"));
+        chrome.browserAction.setIcon({
+            path: "img/off.png"
+        });
+        chrome.tabs.executeScript(tab.id, {
+            code: "",
+        });
+    }
+})
+
+
+chrome.tabs.onActivated.addListener(function (tab) {
+    var toggle = localStorage.getItem("toggle");
+    if (localStorage.getItem("toggle") == "true") {
+        console.log('created ON ' + localStorage.getItem("toggle"));
+
+
+        chrome.browserAction.setIcon({
+            path: "img/on.png"
+        });
+        chrome.tabs.executeScript(tab.id, {
+            file: "js/main.js",
+        });
+    } else if (localStorage.getItem("toggle") == "false") {
+        console.log('created OFF ' + localStorage.getItem("toggle"));
+        chrome.browserAction.setIcon({
+            path: "img/off.png"
+        });
+        chrome.tabs.executeScript(tab.id, {
+            code: "",
+        });
+    }
+})
